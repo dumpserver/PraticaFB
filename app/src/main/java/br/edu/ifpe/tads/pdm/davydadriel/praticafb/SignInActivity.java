@@ -12,6 +12,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInActivity extends AppCompatActivity {
 
+    FirebaseAuth mAuth;
+    FirebaseAuthListener authListener;
+
     EditText edEmail;
     EditText edPassword;
 
@@ -22,6 +25,9 @@ public class SignInActivity extends AppCompatActivity {
 
         this.edEmail = findViewById(R.id.edit_email);
         this.edPassword = findViewById(R.id.edit_password);
+
+        this.mAuth = FirebaseAuth.getInstance();
+        this.authListener = new FirebaseAuthListener(this);
     }
 
     public void buttonSignUpClick(View view) {
@@ -37,12 +43,23 @@ public class SignInActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
 
                     if(task.isSuccessful()){
-                        Intent intent = new Intent(this, HomeActivity.class);
-                        startActivity(intent);
+                        Toast.makeText(SignInActivity.this, "SIGN IN OK!",
+                                Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(SignInActivity.this, "SIGN IN ERROR!",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authListener);
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(authListener);
     }
 }
