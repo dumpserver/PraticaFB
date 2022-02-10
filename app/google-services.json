@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "779970349179",
+    "project_id": "praticafb-d3293",
+    "storage_bucket": "praticafb-d3293.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779970349179:android:97d259e5d498aeb6f97ade",
+        "android_client_info": {
+          "package_name": "br.edu.ifpe.tads.pdm.davydadriel.praticafb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779970349179-kps7blg0n5o3au0j82j060b0974t3811.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdpPRd5035mkHgFrZPhjLCdiRyxdewlH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779970349179-kps7blg0n5o3au0j82j060b0974t3811.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
