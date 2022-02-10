@@ -24,7 +24,7 @@ public class SignInActivity extends AppCompatActivity {
         this.edPassword = findViewById(R.id.edit_password);
     }
 
-    public void buttonSignUpClick(View object) {
+    public void buttonSignUpClick(View view) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
@@ -35,9 +35,14 @@ public class SignInActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(login, passwd)
                 .addOnCompleteListener(this, task -> {
-                    String msg = task.isSuccessful() ? "SIGN IN OK!": "SIGN IN ERROR!";
-                    Toast.makeText(SignInActivity.this, msg,
-                            Toast.LENGTH_SHORT).show();
+
+                    if(task.isSuccessful()){
+                        Intent intent = new Intent(this, HomeActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(SignInActivity.this, "SIGN IN ERROR!",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 });
     }
 }
